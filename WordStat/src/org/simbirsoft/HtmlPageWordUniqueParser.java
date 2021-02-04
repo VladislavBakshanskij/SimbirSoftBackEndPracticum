@@ -2,10 +2,7 @@ package org.simbirsoft;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class HtmlPageWordUniqueParser {
     private final Map<String, Integer> wordMap;
@@ -44,7 +41,7 @@ public class HtmlPageWordUniqueParser {
                     c = bodyText.charAt(i);
                 }
 
-                final String word = clean(bodyText.substring(start, i).toLowerCase());
+                final String word = clean(bodyText.substring(start, i).toUpperCase());
 
                 if (wordMap.containsKey(word)) {
                     final Integer countRepeatWord = wordMap.get(word);
