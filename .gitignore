@@ -1,0 +1,14 @@
+# dirs
+**/.idea/
+**/target/
+**/out/
+**/logs
+
+# files
+*.iml
+app.db
+result*
+
+# build
+!**/WordStat.jar
+!**/WordStatWithJsoup.jar
