@@ -38,7 +38,7 @@ public class Application {
             DataBase.writeWordMap(wordMap);
             System.out.println("\n\n\n\tСохранение завершено!");
         } catch (IOException e) {
-            logger.error("Не найден файл.");
+            logger.error(e.getMessage(), e);
         }
     }
 }
