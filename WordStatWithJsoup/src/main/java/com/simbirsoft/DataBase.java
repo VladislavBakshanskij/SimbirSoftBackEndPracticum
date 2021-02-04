@@ -51,7 +51,7 @@ public class DataBase {
         try {
             DataBase.connect();
         } catch (ClassNotFoundException e) {
-            logger.error("Нет дравера для базы данных.");
+            logger.error("Нет драйвера для базы данных.");
             return;
         } catch (SQLException e) {
             logger.error("Неправильная строка подключения к базе данных.");

@@ -17,9 +17,14 @@ public class Application {
         System.out.print("Введите URL(https://www.simbirsoft.com/): ");
         String url = scanner.next();
 
-        try (final FileWriter fw = new FileWriter("result_jsoup.txt")) {
+        try (FileWriter fw = new FileWriter("result_jsoup.txt");
+             FileWriter sourceFW = new FileWriter("page.html")
+        ) {
             HtmlPageLoader pageLoader = new HtmlPageLoader(url);
             Document page = pageLoader.load();
+
+            sourceFW.write(page.toString());
+
             Map<String, Integer> wordMap = new HtmlPageWordUniqueParser().parse(page);
 
             for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {

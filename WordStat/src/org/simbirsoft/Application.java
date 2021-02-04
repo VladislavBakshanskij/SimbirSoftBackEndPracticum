@@ -12,10 +12,16 @@ public class Application {
         Scanner scanner = new Scanner(System.in);
         String url = scanner.next();
 
-        try (FileWriter fileWriter = new FileWriter("result.txt")) {
+        try (FileWriter fileWriter = new FileWriter("result.txt");
+             FileWriter sourceFileWriter = new FileWriter("page.html")
+        ) {
             HtmlPageLoader htmlPageLoader = new HtmlPageLoader(url);
             HtmlPageWordUniqueParser parser = new HtmlPageWordUniqueParser();
-            Map<String, Integer> wordMap = parser.parse(htmlPageLoader.load());
+            String source = htmlPageLoader.load();
+
+            sourceFileWriter.write(source);
+
+            Map<String, Integer> wordMap = parser.parse(source);
 
             for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {
                 String word = entry.getKey();
