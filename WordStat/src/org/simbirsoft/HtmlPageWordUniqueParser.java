@@ -1,22 +1,20 @@
 package org.simbirsoft;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class HtmlPageWordUniqueParser {
     private final Map<String, Integer> wordMap;
     private final List<Character> rusAlphabet;
-    private final Map<Character, Map<String, Integer>> map;
 
     public HtmlPageWordUniqueParser() {
         wordMap = new TreeMap<>();
-        map = new TreeMap<>();
         rusAlphabet = new ArrayList<>();
 
         for (char i = 'а'; i < 'я'; i++) {
             rusAlphabet.add(i);
-            map.put(i, new TreeMap<>());
         }
     }
 
