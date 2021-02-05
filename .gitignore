@@ -8,6 +8,7 @@
 *.iml
 app.db
 result*
+page*
 
 # build
 !**/WordStat.jar
